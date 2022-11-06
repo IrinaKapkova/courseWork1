@@ -22,10 +22,10 @@ public class Main {
         System.out.printf("Затраты на заработную плату сотрудникам компании в месяц составили: %11.2f рублей\n", staffBook.calculateSumSalary());
         printSeparator();
         System.out.println("Минимальная зарплата сотрудника компании составляет: " + staffBook.getMinSalary() + " рублей");
-        staffBook.getEmployeeWithMin();
+        staffBook.printEmployeeWithMin();
         printSeparator();
         System.out.println("Максимальная зарплата сотрудника компании составляет: " + staffBook.getMaxSalary() + " рублей");
-        staffBook.getEmployeeWithMaxSalary();
+        staffBook.printEmployeeWithMaxSalary();
         printSeparator();
         System.out.printf("Средняя заработная плата сотрудника компании составляет: %9.2f рублей\n", staffBook.getAverageSalaryOfEmployees());
         printSeparator();
@@ -49,10 +49,10 @@ public class Main {
         staffBook.showEmployeeDataInDepartment(4);
         printSeparator();
         System.out.print("Сотрудники компании с зарплатой меньше ");
-        staffBook.findLowerSalary(45000);
+        staffBook.findLowerSalary(6000);
         printSeparator();
         System.out.print("Сотрудники компании с зарплатой больше ");
-        staffBook.findHigherSalary(60000);
+        staffBook.findHigherSalary(120000);
         printSeparator();
         staffBook.addStaffBook("Levin Petr Vladimirovich", 5, 58000);
         System.out.println("Список сотрудников компании после добавления еще одного сотрудника");

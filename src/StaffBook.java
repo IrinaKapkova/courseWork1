@@ -44,7 +44,7 @@ public class StaffBook {
         return minTotalSalary;
     }
 
-    public void getEmployeeWithMin() {
+    public void printEmployeeWithMin() {
         for (Employee employee : staffBook) {
             if (employee != null && employee.getSalary() == getMinSalary()) {
                 System.out.printf("Табельный  номер сотрудника №%-2d  - %-50s, %-1d отдел\n", employee.getId(), employee.getFullName(), employee.getDepartment());
@@ -62,7 +62,7 @@ public class StaffBook {
         return max;
     }
 
-    public void getEmployeeWithMaxSalary() {
+    public void printEmployeeWithMaxSalary() {
         for (Employee employee : staffBook) {
             if (employee != null && employee.getSalary() == getMaxSalary()) {
                 System.out.printf("Табельный  номер сотрудника №%-2d - %s, %d отдел\n", employee.getId(), employee.getFullName(), employee.getDepartment());
@@ -71,14 +71,14 @@ public class StaffBook {
     }
 
     public double getAverageSalaryOfEmployees() {
-        double averageSalary = 0;
         int counter = 0;
         for (Employee employee : staffBook) {
             if (employee != null) ;
-            counter++;
-            averageSalary = calculateSumSalary() / counter;
+            {
+                counter++;
+            }
         }
-        return averageSalary;
+        return calculateSumSalary() / counter;
     }
 
     public void getFullNameEmployees() {
@@ -181,9 +181,10 @@ public class StaffBook {
         for (Employee employees : staffBook) {
             if (employees != null && employees.getSalary() < number) {
                 System.out.println(employees.withOutDepartment());
-            } else if (employees == null && number < getMinSalary()) {
-                System.out.println("Сотрудников с такой заработной платой нет.");
             }
+        }
+        if (number < getMinSalary()) {
+            System.out.println("Сотрудников с такой заработной платой нет.");
         }
     }
 
@@ -192,9 +193,10 @@ public class StaffBook {
         for (Employee employees : staffBook) {
             if (employees != null && employees.getSalary() >= number) {
                 System.out.println(employees.withOutDepartment());
-            } else if (employees == null && number > getMaxSalary()) {
-                System.out.println("Сотрудников с такой заработной платой нет.");
             }
+        }
+        if (number > getMaxSalary()) {
+            System.out.println("Сотрудников с такой заработной платой нет.");
         }
 
     }
@@ -236,8 +238,9 @@ public class StaffBook {
         }
     }
 
-    public String printDepartmentEmployees(int department) {
-        for (Employee employee : this.filterDepartment(department)) {
+    public String DepartmentEmployees(int department) {
+        for (Employee employee
+                : this.filterDepartment(department)) {
             if (employee != null) {
                 System.out.println(employee.withOutDepartment());
             }
@@ -249,7 +252,7 @@ public class StaffBook {
         for (int i = 1; i <= 5; i++) {
             this.filterDepartment(i);
             System.out.println("Сотрудники № " + i + " отдела:");
-            System.out.println(printDepartmentEmployees(i));
+            System.out.println(DepartmentEmployees(i));
         }
     }
 }
